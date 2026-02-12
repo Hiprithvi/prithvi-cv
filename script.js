@@ -1,23 +1,20 @@
-
+// Fade reveal
 const fades = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll', () => {
     fades.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < window.innerHeight - 100) {
+        const top = section.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
             section.classList.add('show');
         }
     });
-});
 
-// Typing effect
-const text = "Entry-Level Professional | Editing & Computer Skills";
-let i = 0;
-function typing() {
-    if (i < text.length) {
-        document.querySelector(".typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 50);
-    }
-}
-typing();
+    // Progress animation
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach(bar => {
+        const top = bar.getBoundingClientRect().top;
+        if(top < window.innerHeight - 50){
+            bar.style.width = bar.getAttribute('data-width');
+        }
+    });
+});
